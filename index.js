@@ -24,7 +24,7 @@ app.post('/process', async (req, res) => {
     const finalPrompt = `${formattedBuffer}
 Summarize the relationships or themes you observe in the lines above and provide any key insights.`;
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     const generation = await model.generateContent(finalPrompt);
     const response = await generation.response;
     const resultText = response?.text()?.trim() || 'No response received.';
