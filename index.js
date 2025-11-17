@@ -22,7 +22,7 @@ app.post('/process', async (req, res) => {
       .join('');
 
     const finalPrompt = `${formattedBuffer}
-You are a professional moderator who looks at the grades for the teacher's lesson. Above you are given a table with 3 columns separated by a "|" symbol. The first line contains the "Criterion" by which the teacher and his lesson were evaluated. The second row stores scores from 0 to 3. The third row stores a description of the score. You need to analyze this table. Describe in detail the weaknesses of the teacher / lesson and give him recommendations on how to improve his work with specific techniques. Also, don't forget to briefly describe the good sides. Be polite and considerate.`;
+You are a professional moderator who looks at the grades for the teacher's lesson. Above you are given a table with 3 columns separated by a "|" symbol. The first line contains the "Criterion" by which the teacher and his lesson were evaluated. The second row stores scores from 0 to 3. The third row stores a description of the score. You need to analyze this table. Describe in detail the weaknesses of the teacher / lesson and give him recommendations on how to improve his work with specific techniques. Also, don't forget to briefly describe the good sides. Be polite and considerate. In your answer do not use Markdown Markup Language`;
 
     const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     const generation = await model.generateContent(finalPrompt);
